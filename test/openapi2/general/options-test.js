@@ -13,6 +13,7 @@ describe('oai2 - general tests', () => {
                     buildRequests: true,
                     buildResponses: true
                 });
+                expect(receivedSchema['/pets']['post'].operationId).to.eql('createPets');
                 expect(typeof receivedSchema['/pets']['post'].body.validate).to.eql('function');
                 expect(typeof receivedSchema['/pets']['post'].parameters.validate).to.eql('function');
                 expect(typeof receivedSchema['/pets']['post'].responses['201'].validate).to.eql('function');

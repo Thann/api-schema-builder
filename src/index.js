@@ -99,6 +99,7 @@ function buildRequestValidator(referenced, dereferenced, currentPath, parsedPath
     let localParameters = [];
     const pathParameters = dereferenced.paths[currentPath].parameters || [];
     const isOpenApi3 = schemaUtils.isOpenApi3(dereferenced);
+    requestSchema.operationId = dereferenced.paths[currentPath][currentMethod].operationId
     const parameters = dereferenced.paths[currentPath][currentMethod].parameters || [];
     if (isOpenApi3) {
         requestSchema.body = oai3.buildRequestBodyValidation(dereferenced, referenced, currentPath, currentMethod, options);
